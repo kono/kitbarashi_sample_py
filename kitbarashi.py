@@ -1,4 +1,4 @@
-import kitmaster
+from kitmaster import kitmaster
 
 class Kitbarashi:
     kitprice = (
