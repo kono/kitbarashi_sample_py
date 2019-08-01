@@ -1,14 +1,11 @@
 from kitmaster import kitmaster
 
 class Kitbarashi:
-    kitprice = (
-        {"kitcode":2, "price_ar":[120,110,100,0]},
-        {"kitcode":9, "price_ar":[200,230,250,210]}
-     )
 
     def __init__(self):
         master = kitmaster.Kitmaster()
-        self.kittable = master.kittable
+        self.kittable = master.kittable()
+        self.kitprice = master.kitprice()
 
     def iskit(self, item):
         return_val = False
