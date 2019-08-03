@@ -13,6 +13,9 @@ class Kitbarashi:
             if ("kitcode", item) in r.items():
                 return_val = r
         return return_val
+    
+    def get_price_index(self, kitprice_r, price):
+        return kitprice_r['price_ar'].index(price)
 
 
     def barashi(self, item, qty, price):
