@@ -8,17 +8,17 @@ class Kitbarashi:
         self.kitprice = master.kitprice()
 
     def iskit(self, item):
-        return_val = False
+        return_val = None
         for r in self.kitprice:
             if ("kitcode", item) in r.items():
-                return_val = True
+                return_val = r
         return return_val
 
 
     def barashi(self, item, qty, price):
         result =[]
         a = self.iskit (item)
-        if  a == False:
+        if  a is None:
             b ={"item":item, "qty":qty, "price":price}
             result.append(b)
         return result
