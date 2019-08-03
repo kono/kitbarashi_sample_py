@@ -16,8 +16,9 @@ class Kitbarashi:
 
 
     def barashi(self, item, qty, price):
-        b = False
+        result =[]
         a = self.iskit (item)
         if  a == False:
             b ={"item":item, "qty":qty, "price":price}
-        return [b]
+            result.append(b)
+        return result
