@@ -15,7 +15,11 @@ class Kitbarashi:
         return return_val
     
     def get_price_index(self, kitprice_r, price):
-        return kitprice_r['price_ar'].index(price)
+        # ratio: If the price is not in the array, 
+        # use the first element of the array to calculate the ratio
+        # (code of calculating ratio has not implemented yet)
+        ratio = 1
+        return kitprice_r['price_ar'].index(price), ratio
 
 
     def barashi(self, item, qty, price):
