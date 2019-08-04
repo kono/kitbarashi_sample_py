@@ -37,3 +37,9 @@ class TestKitbarashi(unittest.TestCase):
             {"item": 12, "qty": 1, "price": 13}
         ]
         self.assertEqual(r3, o.barashi(2, 1, 40))
+
+        r4 = [
+            {"item": 91, "qty": 1, "price": 107},
+             {"item": 92, "qty": 1, "price": 71}
+        ]
+        self.assertEqual(r4,  o.barashi(9,1, 178))
