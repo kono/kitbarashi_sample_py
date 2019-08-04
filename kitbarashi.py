@@ -21,12 +21,13 @@ class Kitbarashi:
         ratio = 1
         return kitprice_r['price_ar'].index(price), ratio
     
-    def get_kit_component(self, itemcode, price_index, ratio):
+    def get_kit_component(self, itemcode, p_qty, price_index, ratio):
         result = []
         for kit in self.kittable:
             if kit['kitcode'] == itemcode:
                 price = kit['price_ar'][price_index] * ratio
-                b = {"item": kit['linecode'], "qty": kit['qty'], "price": price}
+                qty   = kit['qty'] * p_qty
+                b = {"item": kit['linecode'], "qty": qty, "price": price}
                 result.append(b)
         return result
 
@@ -39,5 +40,5 @@ class Kitbarashi:
             result.append(b)
         else:
                 price_index, ratio = self.get_price_index(a, price)
-                result = self.get_kit_component(item, price_index, ratio)
+                result = self.get_kit_component(item, qty, price_index, ratio)
         return result
