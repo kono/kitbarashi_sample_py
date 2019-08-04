@@ -17,15 +17,19 @@ class Kitbarashi:
     def get_price_index(self, kitprice_r, price):
         # ratio: If the price is not in the array, 
         # use the first element of the array to calculate the ratio
-        # (code of calculating ratio has not implemented yet)
         ratio = 1
-        return kitprice_r['price_ar'].index(price), ratio
+        try:
+            index = kitprice_r['price_ar'].index(price)
+        except ValueError:
+            index = 0
+            ratio = price / kitprice_r['price_ar'][index] 
+        return index, ratio
     
     def get_kit_component(self, itemcode, p_qty, price_index, ratio):
         result = []
         for kit in self.kittable:
             if kit['kitcode'] == itemcode:
-                price = kit['price_ar'][price_index] * ratio
+                price = round(kit['price_ar'][price_index] * ratio)
                 qty   = kit['qty'] * p_qty
                 b = {"item": kit['linecode'], "qty": qty, "price": price}
                 result.append(b)
