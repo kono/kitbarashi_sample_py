@@ -37,4 +37,7 @@ class Kitbarashi:
         if  a is None:
             b ={"item":item, "qty":qty, "price":price}
             result.append(b)
+        else:
+                price_index, ratio = self.get_price_index(a, price)
+                result = self.get_kit_component(item, price_index, ratio)
         return result
