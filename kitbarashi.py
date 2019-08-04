@@ -20,6 +20,15 @@ class Kitbarashi:
         # (code of calculating ratio has not implemented yet)
         ratio = 1
         return kitprice_r['price_ar'].index(price), ratio
+    
+    def get_kit_component(self, itemcode, price_index, ratio):
+        result = []
+        for kit in self.kittable:
+            if kit['kitcode'] == itemcode:
+                price = kit['price_ar'][price_index] * ratio
+                b = {"item": kit['linecode'], "qty": kit['qty'], "price": price}
+                result.append(b)
+        return result
 
 
     def barashi(self, item, qty, price):
